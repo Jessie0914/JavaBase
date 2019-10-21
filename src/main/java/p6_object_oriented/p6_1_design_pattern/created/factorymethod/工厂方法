@@ -1,0 +1,16 @@
+工厂方法
+目标：
+简单工厂是用一个另外的专门的工厂类去创建对象，而工厂方法是将创建对象的工作交给子类！
+
+如何实现：
+定义一个创建对象的接口，但是由子类决定要去实例化哪个类，工厂方法把实例化操作推迟到子类
+
+- 首先创建一个实体接口类Product
+- 然后有很多具体的实现类会去implements Product，比如说ConcreteProduct、ConcreteProduct1、ConcreteProduct…
+- 接着去创建一个抽象的工厂类Factory，里面有一个需要子类实现的方法叫做factoryMethod，返回的就是一个Product对象
+- 最后创建很多具体的工厂类extends Factory，比日说ConcreteFactory、ConcreteFactory1、ConcreteFactory2…
+- 这些继承了Factory的类都需要实现这个抽象方法，在方法体中就会调用ConcreteProduct、ConcreteProduct1、ConcreteProduct，返回具体的Product
+
+总结：
+这就实现了把创建对象的工作交给了不同的子类，由不同的子类决定最终返回的对象是哪个
+（因为调用哪个子类的factoryMethod，就会去调用哪个ConcreteFactory的构造方法，然后返回对应的Product）

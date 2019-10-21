@@ -1,3 +1,8 @@
+import java.net.StandardSocketOptions;
+import java.nio.channels.SelectionKey;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @program: Test
  * @description:
@@ -6,16 +11,19 @@
  **/
 
 public class Test {
-    public static int A = 1;
-    static {
-        A = 2;
-    }
-}
-
-class B extends Test{
-    static int Q = Test.A;
-
     public static void main(String[] args) {
-        System.out.println(Q);
+        List<Integer> list = new ArrayList<>();
+
+        // 添加元素
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        // 遍历访问
+        for (int i=0;i<list.size();i++){
+            int curNum = list.get(i);
+            System.out.println(curNum);
+        }
     }
 }
+
